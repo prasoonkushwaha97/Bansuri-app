@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#10251f"><meta name="description" content="Virtual Bansuri — play flute, explore bhajans and melodies.">
+<link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="style.css">
+<title>Bansuri — सुरों का सफर</title>
+</head>
+<body>
+<div class="app-shell">
+<header class="topbar">
+  <a class="brand" href="#" aria-label="Bansuri home"><span class="brand-mark">♫</span><span><b>BANSURI</b><small>सुरों का सफर</small></span></a>
+  <button class="icon-btn" id="soundToggle" aria-label="Sound settings">⚙</button>
+</header>
+<main>
+<section class="hero">
+  <div class="hero-copy"><p class="eyebrow">INDIAN FLUTE EXPERIENCE</p><h1>हर सुर में<br><em>एक कहानी।</em></h1>
+  <p class="hero-sub">अपनी बाँसुरी बजाएँ या पसंदीदा धुन सुनें।</p>
+  <button class="primary-btn" data-tab="play">बाँसुरी बजाएँ <span>→</span></button></div>
+  <div class="hero-art" aria-hidden="true"><div class="glow"></div><div class="flute-visual"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="note n1">♪</span><span class="note n2">♫</span></div>
+</section>
+<nav class="tabs" aria-label="मुख्य नेविगेशन">
+<button class="tab active" data-tab="home">⌂ <span>होम</span></button>
+<button class="tab" data-tab="play">◉ <span>बजाएँ</span></button>
+<button class="tab" data-tab="library">♫ <span>धुनें</span></button>
+<button class="tab" data-tab="my">♡ <span>मेरी धुनें</span></button>
+</nav>
+<section id="home" class="view active">
+  <div class="section-head"><div><p class="eyebrow">EXPLORE MUSIC</p><h2>आज क्या सुनेंगे?</h2></div><span class="live-dot">● SUR MODE</span></div>
+  <div class="quick-grid">
+    <button class="quick-card saffron" data-filter="भजन"><span class="quick-icon">🪔</span><b>भजन</b><small>भक्ति की धुनें</small><span class="card-arrow">↗</span></button>
+    <button class="quick-card blue" data-filter="गीत"><span class="quick-icon">♫</span><b>गीत</b><small>लोकप्रिय धुनें</small><span class="card-arrow">↗</span></button>
+    <button class="quick-card green" data-tab="play"><span class="quick-icon">🎋</span><b>खुद बजाएँ</b><small>Virtual Bansuri</small><span class="card-arrow">↗</span></button>
+  </div>
+  <div class="section-head"><div><p class="eyebrow">HANDPICKED</p><h2>लोकप्रिय धुनें</h2></div><button class="text-btn" data-tab="library">सभी देखें →</button></div>
+  <div id="featured" class="song-list"></div>
+</section>
+<section id="play" class="view">
+  <div class="section-head"><div><p class="eyebrow">VIRTUAL INSTRUMENT</p><h2>अपनी बाँसुरी बजाएँ</h2><p class="muted">छेदों को दबाकर सुर निकालें</p></div></div>
+  <div class="instrument-card">
+    <div class="instrument-top"><span class="pill">सा रे ग म प ध नि</span><span id="currentNote" class="current-note">सा</span></div>
+    <div class="flute-body" id="fluteBody" aria-label="बाँसुरी के स्वर छेद">
+      <button class="hole" data-note="सा" aria-label="सा"></button><button class="hole" data-note="रे" aria-label="रे"></button><button class="hole" data-note="ग" aria-label="ग"></button><button class="hole" data-note="म" aria-label="म"></button><button class="hole" data-note="प" aria-label="प"></button><button class="hole" data-note="ध" aria-label="ध"></button><button class="hole" data-note="नि" aria-label="नि"></button>
+    </div>
+    <div class="note-labels"><span>सा</span><span>रे</span><span>ग</span><span>म</span><span>प</span><span>ध</span><span>नि</span></div>
+    <div class="instrument-controls"><label>सप्तक <select id="octave"><option value="0">मध्य</option><option value="1">तार</option><option value="-1">मंद्र</option></select></label><label>आवाज़ <select id="tone"><option value="soft">मधुर</option><option value="bright">तेज</option></select></label><button id="stopNote" class="secondary-btn">■ रोकें</button></div>
+  </div>
+  <p class="hint">टिप: मोबाइल पर किसी छेद को दबाकर रखें। बेहतर अनुभव के लिए हेडफोन इस्तेमाल करें।</p>
+</section>
+<section id="library" class="view">
+  <div class="section-head"><div><p class="eyebrow">MUSIC LIBRARY</p><h2>धुनों की दुनिया</h2><p class="muted">भजन और गीत — बाँसुरी की आवाज़ में</p></div></div>
+  <div class="search-wrap"><span>⌕</span><input id="search" type="search" placeholder="भजन या धुन खोजें..." aria-label="धुन खोजें"></div>
+  <div class="filters"><button class="filter active" data-filter="सभी">सभी</button><button class="filter" data-filter="भजन">भजन</button><button class="filter" data-filter="गीत">गीत</button><button class="filter" data-filter="शांत">शांत धुनें</button></div>
+  <div id="librarySongs" class="song-list"></div>
+  <p class="library-note">यह शुरुआती लाइब्रेरी है। आगे इसमें लाइसेंस प्राप्त, पारंपरिक और आपकी खुद की धुनें जोड़ी जा सकती हैं।</p>
+</section>
+<section id="my" class="view">
+  <div class="section-head"><div><p class="eyebrow">YOUR COLLECTION</p><h2>मेरी धुनें</h2><p class="muted">अपनी बनाई हुई धुन सेव करें।</p></div></div>
+  <div class="composer">
+    <label for="melodyName">धुन का नाम</label><input id="melodyName" placeholder="जैसे — सुबह की धुन">
+    <label for="melodyNotes">स्वर लिखें</label><input id="melodyNotes" placeholder="सा रे ग म | म ग रे सा">
+    <small>स्वर: सा रे ग म प ध नि। अलग-अलग स्वरों के बीच स्पेस दें।</small>
+    <button id="saveMelody" class="primary-btn full">धुन सेव करें +</button>
+  </div>
+  <div id="mySongs" class="song-list"></div>
+</section>
+</main>
+<footer><span class="brand-mark">♫</span><p><b>BANSURI</b> · Made for the love of music</p><small>धुनें सुनें, सुरों को महसूस करें।</small></footer>
+</div>
+<div id="player" class="player hidden">
+  <div class="player-info"><span class="player-art">♫</span><div><b id="playerTitle">धुन</b><small id="playerCategory">बाँसुरी</small></div></div>
+  <div class="player-actions"><button id="prevSong" aria-label="Previous">|◀</button><button id="playPause" class="play-round" aria-label="Play pause">▶</button><button id="nextSong" aria-label="Next">▶|</button></div>
+  <div class="progress"><span id="progressBar"></span></div>
+</div>
+<div id="toast" role="status"></div>
+<script src="app.js"></script>
+</body></html>
