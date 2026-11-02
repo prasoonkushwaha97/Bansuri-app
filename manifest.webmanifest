@@ -1,0 +1,10 @@
+{
+  "name": "Bansuri — सुरों का सफर",
+  "short_name": "Bansuri",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0b1714",
+  "theme_color": "#10251f",
+  "description": "Virtual Indian flute and melody library",
+  "icons": []
+}

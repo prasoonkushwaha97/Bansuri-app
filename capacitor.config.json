@@ -1,0 +1,6 @@
+{
+  "appId": "in.bansuri.app",
+  "appName": "Bansuri",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
